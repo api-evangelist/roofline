@@ -1,0 +1,145 @@
+generated: '2026-08-17'
+method: probed
+source: >-
+  live anonymous GET of /.well-known/*, spec paths and /llms.txt on every
+  Roofline host reachable from apis.yml plus every host surfaced by
+  certificate-transparency enumeration of %.roofline.ai via crt.sh
+summary: >-
+  Roofline serves NO /.well-known/ discovery surface on any host it controls —
+  no security.txt, no OIDC or OAuth authorization-server metadata, no
+  api-catalog, no ai-plugin.json and no A2A agent card. Every path returns a
+  404. It DOES publish a real /llms.txt on the marketing site (200,
+  text/plain, 779 bytes), which is the only machine-readable document Roofline
+  publishes anywhere. No WellKnown pointer is emitted in apis.yml: this file
+  documents an absence, not a presence.
+hosts:
+- host: https://www.roofline.ai
+  documents:
+  - path: /llms.txt
+    status: 200
+    content_type: text/plain
+    bytes: 779
+    file: ../llms/roofline-llms.txt
+  - path: /robots.txt
+    status: 200
+    note: 'Allow: / with a single Disallow on paginated query strings; sitemap declared.'
+  - path: /sitemap.xml
+    status: 200
+    note: >-
+      45,444 bytes, 45 English URLs plus Japanese (/ja) alternates. No pricing,
+      no developer, no docs and no API section exists in the sitemap.
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /openapi.yaml
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /api-docs
+    status: 404
+  - path: /docs
+    status: 404
+  - path: /graphql
+    status: 404
+  - path: /mcp
+    status: 404
+
+dns_probes:
+  note: >-
+    Every obvious API/docs hostname was resolved before it was fetched. All of
+    these are NXDOMAIN — Roofline runs no developer, docs or API host at all.
+  nxdomain:
+  - docs.roofline.ai
+  - api.roofline.ai
+  - app.roofline.ai
+  - dashboard.roofline.ai
+  - sdk.roofline.ai
+  - hub.roofline.ai
+  - registry.roofline.ai
+  - mcp.roofline.ai
+  - portal.roofline.ai
+  - developer.roofline.ai
+  - developers.roofline.ai
+
+certificate_transparency:
+  source: https://crt.sh/?q=%25.roofline.ai&output=json
+  status: 200
+  distinct_names: 13
+  note: >-
+    CT enumeration surfaced only internal engineering infrastructure. None of it
+    is a Roofline API surface and none of it is attributed to Roofline as one.
+  hosts:
+  - host: cpu-demo.roofline.ai
+    resolves: 65.109.109.159
+    status: 200
+    finding: third-party-product-not-roofline-api
+    detail: >-
+      A self-hosted Coder deployment (coder/coder v2.31.9+2f5d21d, confirmed
+      anonymously at /api/v2/buildinfo, which reports dashboard_url
+      https://cpu-demo.roofline.ai). This is Roofline's internal cloud
+      development-environment tooling, and the HTTP API it exposes is Coder's
+      product API documented at coder.com/docs — NOT an API Roofline publishes,
+      designs or supports. Per the enrichment pipeline's ownership rule nothing
+      is saved from it and no contract is attributed to Roofline.
+    soft_200_warning: >-
+      The Coder SPA answers 200 with the same 3,180-byte HTML shell for EVERY
+      path, including /openapi.json, /llms.txt, /mcp, /graphql and
+      /.well-known/agent-card.json. Treated as a miss on all of them.
+  - host: cdr.roofline.ai
+    resolves: 157.90.233.151
+    status: 000
+    detail: no response on 443 or 80 (connection not completed).
+  - host: coder.roofline.ai
+    resolves: 162.55.104.239
+    status: 000
+    detail: no response on 443 or 80; name implies the same internal Coder tooling.
+  - host: dashboards.roofline.ai
+    resolves: 188.245.204.85
+    status: 000
+    detail: no response on 443 or 80.
+  - host: influx.roofline.ai
+    resolves: 188.245.204.85
+    status: 000
+    detail: >-
+      no response on 443 or 80. Name implies a self-hosted InfluxDB used for the
+      nightly benchmark telemetry behind the Performance Dashboard product; even
+      if reachable, an InfluxDB instance serves InfluxData's API, not Roofline's.
+  - host: influxdb2.roofline.ai
+    resolves: 37.27.242.160
+    status: 200
+    port: 80
+    detail: >-
+      HTTPS does not complete; port 80 returns the 615-byte stock
+      "Welcome to nginx" page (nginx/1.24.0 Ubuntu). No API, no document.
+  - host: test01.roofline.ai
+    resolves: 37.27.242.160
+    status: 200
+    port: 80
+    detail: same stock nginx default page as influxdb2 (same host, same ETag).
+  nxdomain:
+  - coder-test.roofline.ai
+  - demo.roofline.ai
+  - vpn.roofline.ai
+
+x-evidence:
+  fetched: '2026-08-17'
+  pointer_emitted: false
+  pointer_reason: >-
+    Every /.well-known/ path 404s. A WellKnown pointer would assert that Roofline
+    serves a discovery surface it does not serve. Only the LLMsTxt pointer is
+    emitted, because /llms.txt is a real 200 carrying a real document.

@@ -1,0 +1,18 @@
+# RooflineAI
+
+RooflineAI builds a retargetable compiler SDK that lets hardware vendors and embedded software teams deploy and optimize AI/ML models on edge devices (NPUs, MCUs, heterogeneous SoCs) without manual tuning. Built on open-source MLIR/IREE with proprietary hardware-specific optimization on top.
+
+## Solutions
+https://www.roofline.ai/
+https://www.roofline.ai/ml-solution
+https://www.roofline.ai/hardware-solution
+
+## Products
+https://www.roofline.ai/product-sdk
+https://www.roofline.ai/product-runtime
+https://www.roofline.ai/product-performance-dashboard
+
+## Case studies
+https://www.roofline.ai/case-studies/asynchronous-heterogeneous-execution
+https://www.roofline.ai/case-studies/nxp-neutron-llm-enablement
+https://www.roofline.ai/case-studies/dynamic-shapes-llms

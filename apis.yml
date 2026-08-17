@@ -1,18 +1,52 @@
 aid: roofline
 name: Roofline
-description: 'Roofline is a company surfaced as a portfolio company of serena and added to the API Evangelist
-  network as a stub for enrichment. Sector: ai-data. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Roofline (RooflineAI GmbH, Köln, Germany) is a 2024 RWTH Aachen University
+  spin-off building a retargetable AI compiler stack for edge deployment. Its
+  three products are an SDK that compiles models ahead of time from any
+  framework — the product page shows a single Python call, attic.compile(model,
+  (input,)) — a lightweight C runtime with Python bindings that executes the
+  compiled model and orchestrates heterogeneous SoCs, and a Performance Dashboard
+  fed by a roofbench command-line tool running nightly benchmarks across hundreds
+  of models for latency, throughput and memory footprint. The stack is built on
+  open-source MLIR and IREE with proprietary hardware-specific optimization on
+  top, and targets NPUs, MCUs and heterogeneous SoCs with quantization (INT8,
+  blocked, symmetric, asymmetric, dynamic), dynamic shapes for on-device LLMs and
+  mixture-of-experts support. Published work includes NXP eIQ Neutron NPU LLM
+  enablement, Vulkan 1.3 and Arm SVE support in IREE, and day-0 support for
+  Liquid AI LFM2. Roofline is a strategic partner of the Edge AI Foundation and
+  raised a seed round from Serena and First Momentum Ventures. It sells compiler
+  licenses to hardware vendors and embedded software teams: there is no developer
+  program, no public API, no documentation host and no registry-published
+  package. Every product page ends at a Contact Sales form, and the only
+  machine-readable document Roofline publishes anywhere is an llms.txt on its
+  marketing site.
 url: https://raw.githubusercontent.com/api-evangelist/roofline/refs/heads/main/apis.yml
+image: https://cdn.prod.website-files.com/691c3b22c31ce2676bca90d5/691c3b22c31ce2676bca9100_roofline.svg
 x-type: company
 x-source: serena-portfolio
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-backed-by:
+- serena
+x-tier: profiled
+x-tier-reason: sales-gated-compiler-sdk-no-developer-program
 specificationVersion: '0.20'
 created: '2026-08-17'
 modified: '2026-08-17'
 tags:
 - Company
 - Ai Data
+- Edge AI
+- AI Compiler
+- MLIR
+- IREE
+- Machine Learning
+- Model Deployment
+- Embedded
+- NPU
+- Quantization
+- On-Device LLM
+- Developer Tools
+- Germany
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -22,3 +56,59 @@ maintainers:
 common:
 - type: Website
   url: https://www.roofline.ai/
+- type: Blog
+  url: https://www.roofline.ai/news
+- type: Support
+  url: https://www.roofline.ai/contact-us
+- type: SignUp
+  url: https://www.roofline.ai/contact-us
+- type: GitHubOrganization
+  url: https://github.com/RooflineAI
+- type: PrivacyPolicy
+  url: https://www.roofline.ai/privacy-policy
+- type: LLMsTxt
+  url: llms/roofline-llms.txt
+- type: Packages
+  url: packages/roofline-packages.yml
+- type: Plans
+  url: plans/roofline-plans-pricing.yml
+- type: DomainSecurity
+  url: security/roofline-domain-security.yml
+x-enrichment:
+  date: '2026-08-17'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
+  note: >-
+    Full contract discovery ran and missed: no OpenAPI, Swagger, GraphQL,
+    AsyncAPI, MCP endpoint or A2A agent card exists on any host Roofline
+    controls, and docs/api/app/developer/mcp/sdk.roofline.ai are all NXDOMAIN.
+    Certificate-transparency enumeration of %.roofline.ai surfaced 13 names, all
+    internal engineering infrastructure; the only reachable one, cpu-demo,
+    is a self-hosted Coder v2.31.9 deployment whose API belongs to coder.com and
+    was therefore not attributed to Roofline. Real finds: a published llms.txt
+    (200, 779 bytes) and a probed domain-security posture. Real absences
+    recorded: zero registry-published packages despite three shipping products,
+    and zero published plans behind a two-tier Contact Sales license model.
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    All three Roofline products — SDK, Runtime and Performance Dashboard — end at
+    the same sentence, "Just reach out through our Contact Us form", and the only
+    "view docs" link on those pages resolves to github.com/RooflineAI, an org
+    whose own profile README disclaims its repos as "not a Roofline AI product".
+  evidence:
+  - url: https://www.roofline.ai/product-sdk
+    status: 200
+  - url: https://www.roofline.ai/contact-us
+    status: 200
+  - url: https://www.roofline.ai/pricing
+    status: 404
+  - url: https://www.roofline.ai/openapi.json
+    status: 404
+  - url: https://www.roofline.ai/.well-known/agent-card.json
+    status: 404
+  - url: https://docs.roofline.ai/
+    status: 0
+  checked: '2026-08-17'

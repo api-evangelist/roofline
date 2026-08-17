@@ -1,0 +1,87 @@
+generated: '2026-08-17'
+method: searched
+source: https://www.roofline.ai/product-sdk
+docs:
+- https://www.roofline.ai/product-sdk
+- https://www.roofline.ai/product-runtime
+- https://www.roofline.ai/product-performance-dashboard
+- https://www.roofline.ai/contact-us
+note: >-
+  Roofline publishes no pricing of any kind. /pricing 404s, no pricing page
+  appears in the sitemap, and no price, currency, billing period, quota or
+  overage figure appears anywhere on the public site. What it does publish is a
+  two-tier LICENSE model, named identically on all three product pages —
+  Non-commercial and Commercial — with the feature contents of each spelled out
+  but every commercial term omitted. Both tiers carry the same call to action,
+  "Contact Sales", pointing at /contact-us. Roofline sells compiler-stack
+  licenses to hardware vendors and embedded software teams through a sales
+  conversation, so price is negotiated per deal. This is an honest zero: the
+  license tiers are recorded below as published license terms, and plan_count
+  stays 0 because Roofline publishes no priced plan.
+
+plan_count: 0
+plans: []
+
+model: enterprise-sales-only
+self_serve: false
+free_tier: false
+trial:
+  offered: unknown
+  note: >-
+    No free trial, sandbox, evaluation build or time-limited license is
+    advertised. The Non-commercial license is not a free tier — its terms and
+    price are not published and it is obtained through the same sales form.
+
+license_tiers:
+- name: Non-commercial License
+  price: null
+  currency: null
+  period: null
+  acquisition: Contact Sales
+  url: https://www.roofline.ai/contact-us
+  includes:
+  - Unlimited developer access within organization
+  - Coverage for selected models
+  - Guaranteed stability and documentation
+  note: Feature list quoted verbatim from the SDK product page. No price published.
+- name: Commercial License
+  price: null
+  currency: null
+  period: null
+  acquisition: Contact Sales
+  url: https://www.roofline.ai/contact-us
+  includes:
+  - Everything under Non-Commercial License
+  - Commercial deployments to customers
+  - Guaranteed coverage for TFLite, PyTorch and ONNX models
+  - Continuous performance optimizations in Roofline's stack
+  - Premium support
+  note: Feature list quoted verbatim from the SDK product page. No price published.
+
+acquisition:
+  path: Contact Sales / Contact Us form
+  url: https://www.roofline.ai/contact-us
+  contact: info@roofline.ai
+
+x-evidence:
+- url: https://www.roofline.ai/pricing
+  status: 404
+  fetched: '2026-08-17'
+- url: https://www.roofline.ai/product-sdk
+  status: 200
+  fetched: '2026-08-17'
+- url: https://www.roofline.ai/product-runtime
+  status: 200
+  fetched: '2026-08-17'
+- url: https://www.roofline.ai/product-performance-dashboard
+  status: 200
+  fetched: '2026-08-17'
+- url: https://www.roofline.ai/contact-us
+  status: 200
+  fetched: '2026-08-17'
+- url: https://www.roofline.ai/sitemap.xml
+  status: 200
+  fetched: '2026-08-17'
+  note: >-
+    45 English URLs. Sections are solutions, products, case studies, news,
+    contact, imprint and privacy policy. No pricing or plans section exists.

@@ -1,0 +1,157 @@
+generated: '2026-08-17'
+method: searched
+source: >-
+  PyPI, npm, crates.io, GitHub releases and the github.com/RooflineAI
+  organization, plus the three Roofline product pages (product-sdk,
+  product-runtime, product-performance-dashboard)
+summary: >-
+  Roofline ships an SDK, a runtime and a benchmarking/dashboard tool as its core
+  commercial products, but it publishes NONE of them to any package registry.
+  There is no pip wheel, no npm package, no crate, no Maven artifact and no
+  GitHub release anywhere in the RooflineAI organization. Every product page ends
+  at the same sentence — "Just reach out through our Contact Us form" — so the
+  distribution channel is a sales conversation, not a registry. This is an honest
+  zero, recorded rather than omitted.
+
+package_count: 0
+packages: []
+
+distribution:
+  channel: on-request
+  self_serve: false
+  url: https://www.roofline.ai/contact-us
+  note: >-
+    All three products are obtained by contacting Roofline. No download link,
+    license key flow, artifact repository or registry namespace is published.
+
+products:
+- name: Roofline SDK
+  page: https://www.roofline.ai/product-sdk
+  language: python
+  registry: none
+  version: null
+  published: null
+  official: true
+  distribution: on-request
+  note: >-
+    Ahead-of-time compiler SDK with a Python entry point. The product page shows
+    the import name as `attic` and the call as `attic.compile(model, (input,))`.
+    No package by that name belonging to Roofline exists on PyPI — pypi.org/pypi/attic
+    is an unrelated 2015 deduplicating-backup tool by Jonas Borgstrom
+    (attic-backup.org), and roofline, roofline-ai, rooflineai, roofline-sdk,
+    attic-compiler, attic-compile and attic-runtime all 404 on PyPI. version is
+    null because nothing is published to read a version from, not because it was
+    not checked.
+- name: Roofline Runtime
+  page: https://www.roofline.ai/product-runtime
+  language: c
+  bindings: python
+  registry: none
+  version: null
+  published: null
+  official: true
+  distribution: on-request
+  note: >-
+    Lightweight on-device runtime, C core with Python bindings
+    (`create_attic_runtime(compiled_model)` per the product page). Licensed in
+    two tiers, non-commercial and commercial, both behind the contact form. No
+    registry artifact and no GitHub release.
+- name: roofbench / Performance Dashboard
+  page: https://www.roofline.ai/product-performance-dashboard
+  kind: cli+dashboard
+  registry: none
+  version: v3
+  published: null
+  official: true
+  distribution: on-request
+  note: >-
+    The dashboard page names a command-line tool, "roofbench-v3", driving
+    nightly benchmark runs across hundreds of models. `roofbench` 404s on PyPI
+    and appears in no GitHub release. The version recorded here is the "v3" the
+    product page itself states; no dated release exists to confirm it, so
+    published is null.
+
+open_source:
+  note: >-
+    github.com/RooflineAI is a verified organization with 12 public repos, but
+    none of them is a client library for a Roofline API — they are upstream
+    compiler forks plus internal engineering tooling, and the org profile README
+    explicitly disclaims them as products. Recorded for completeness, NOT counted
+    as SDKs.
+  disclaimer_verbatim: >-
+    "Roofline AI developers produced this code as an open source project (not as
+    a Roofline AI product), and Roofline AI makes no assertions as to the level of
+    quality nor security, and will not be maintaining this code going forward."
+  disclaimer_source: https://github.com/RooflineAI
+  first_party_repos:
+  - name: iree
+    url: https://github.com/RooflineAI/iree
+    language: c++
+    license: Apache-2.0
+    default_branch: dev
+    last_push: '2025-08-18'
+    releases: 0
+    note: >-
+      Roofline's own tree of the upstream IREE MLIR compiler/runtime toolkit
+      (iree.dev) that its SDK is built on. Not a Roofline client library.
+  - name: mlir-track-src
+    url: https://github.com/RooflineAI/mlir-track-src
+    language: python
+    license: Apache-2.0
+    last_push: '2026-04-20'
+    releases: 0
+  - name: rules_pythonic
+    url: https://github.com/RooflineAI/rules_pythonic
+    language: python
+    last_push: '2026-04-09'
+    releases: 0
+    note: Bazel rules delegating to uv. Build tooling.
+  - name: codepicture
+    url: https://github.com/RooflineAI/codepicture
+    language: python
+    license: MIT
+    last_push: '2026-08-12'
+    releases: 0
+    note: >-
+      CLI that renders source code to presentation images. README installs from
+      source with "pip install ." only; not on PyPI.
+  forks:
+  - torch-mlir
+  - iree-turbine
+  - llvm-project
+  - stablehlo
+  - rules_uv
+  - rules_py
+
+registries_checked:
+- registry: pypi
+  names:
+  - {name: attic, status: 200, belongs_to_provider: false, note: unrelated attic-backup.org project}
+  - {name: roofline, status: 404}
+  - {name: roofline-ai, status: 404}
+  - {name: rooflineai, status: 404}
+  - {name: roofline-sdk, status: 404}
+  - {name: roofline-runtime, status: 404}
+  - {name: attic-compiler, status: 404}
+  - {name: attic-compile, status: 404}
+  - {name: attic-runtime, status: 404}
+  - {name: roofbench, status: 404}
+  - {name: codepicture, status: 404}
+  - {name: mlir-track-src, status: 404}
+  - {name: rules-pythonic, status: 404}
+- registry: npm
+  names:
+  - {name: roofline, status: 404}
+  - {name: '@roofline/sdk', status: 404}
+  - {name: roofline-ai, status: 404}
+- registry: github-releases
+  note: 0 releases across every RooflineAI repository checked (iree, mlir-track-src, codepicture, rules_pythonic, Press).
+
+x-evidence:
+  fetched: '2026-08-17'
+  sdk_pointer_emitted: false
+  sdk_pointer_reason: >-
+    No `type: SDKs` pointer is emitted. Roofline genuinely builds an SDK, but a
+    consumer cannot fetch it: there is no registry entry, no release, no download
+    and no version anyone outside the sales funnel can read. Emitting SDKs here
+    would credit a published client library that does not exist.
