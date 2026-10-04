@@ -62,7 +62,7 @@ tags:
 - AI Compiler
 - MLIR
 - IREE
-- Machine-Learning
+- Machine Learning
 - Model Deployment
 - Embedded
 - NPU
@@ -85,6 +85,7 @@ tags_raw:
 - On-Device LLM
 - Developer Tools
 - Germany
+- Machine-Learning
 apis: []
 maintainers:
 - FN: Kin Lane
