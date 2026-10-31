@@ -64,6 +64,90 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Roofline is a company surfaced as a portfolio company of serena and added to the API Evangelist network as a stub for enrichment. Sector: ai-data. This profile is a lead awaiting the enrichment pipeline.
+Roofline (RooflineAI GmbH, Köln, Germany) is a 2024 RWTH Aachen University spin-off building a retargetable AI compiler stack for edge deployment. Its three products are an SDK that compiles models ahead of time from any framework — the product page shows a single Python call, attic.compile(model, (input,)) — a lightweight C runtime with Python bindings that executes the compiled model and orchestrates heterogeneous SoCs, and a Performance Dashboard fed by a roofbench command-line tool running nightly benchmarks across hundreds of models for latency, throughput and memory footprint. The stack is built on open-source MLIR and IREE with proprietary hardware-specific optimization on top, and targets NPUs, MCUs and heterogeneous SoCs with quantization (INT8, blocked, symmetric, asymmetric, dynamic), dynamic shapes for on-device LLMs and mixture-of-experts support. Published work includes NXP eIQ Neutron NPU LLM enablement, Vulkan 1.3 and Arm SVE support in IREE, and day-0 support for Liquid AI LFM2. Roofline is a strategic partner of the Edge AI Foundation and raised a seed round from Serena and First Momentum Ventures. It sells compiler licenses to hardware vendors and embedded software teams: there is no developer program, no public API, no documentation host and no registry-published package. Every product page ends at a Contact Sales form, and the only machine-readable document Roofline publishes anywhere is an llms.txt on its marketing site.
 
-Source: portfolio company of [serena](https://github.com/api-evangelist/serena) — https://www.roofline.ai/
+**Areas:** Company · Ai Data · Edge AI · AI Compiler · MLIR · IREE · Machine Learning · Model Deployment · Embedded · NPU · Quantization · On-Device LLM
+
+## Roofline on APIs.io
+
+Everything profiled for Roofline is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/roofline/](https://apis.io/providers/roofline/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Roofline Domain Security](https://apis.io/security/roofline/roofline-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Roofline Plans Pricing](https://apis.io/plans/roofline/roofline-plans-pricing/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.roofline.ai/)
+- [Sign up](https://www.roofline.ai/contact-us)
+- [Support](https://www.roofline.ai/contact-us)
+- [Blog](https://www.roofline.ai/news)
+- [Privacy policy](https://www.roofline.ai/privacy-policy)
+- [GitHub](https://github.com/RooflineAI)
+
+## API Evangelist rating
+
+**Kin Score 11.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 55.4 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 7.1 |
+| Access clarity | 23.7 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 9.1** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/roofline/](https://apis.io/providers/roofline/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Roofline: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/roofline/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
